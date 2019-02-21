@@ -1,0 +1,9 @@
+i# {{ ansible_managed }}
+[Service.{{ openio_event_agent_namespace }}-oio-event-delete-agent-{{ openio_event_agent_serviceid }}]
+group={{ openio_event_agent_namespace }},localhost,event-delete
+uid=openio
+gid=openio
+on_die=respawn
+enabled=true
+start_at_boot=true
+command=/usr/bin/oio-event-agent /etc/oio/sds/{{ openio_event_agent_namespace }}/oio-event-agent-{{ openio_event_agent_serviceid }}/oio-event-agent-delete-{{ openio_event_agent_serviceid }}.conf

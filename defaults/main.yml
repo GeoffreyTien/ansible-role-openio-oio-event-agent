@@ -15,6 +15,9 @@ openio_event_agent_tube: oio
 openio_event_agent_provision_only: false
 openio_event_agent_location: "{{ ansible_hostname }}.{{ openio_event_agent_serviceid }}"
 
+openio_event_agent_tube_delete: "oio-delete"
+openio_event_agent_tube_delete_status: false
+
 # pipelines
 openio_event_agent_storage_content_new_pipeline:
   - noop
@@ -41,6 +44,9 @@ openio_event_agent_storage_container_new_pipeline:
 openio_event_agent_storage_container_deleted_pipeline:
   - account_update
   - volume_index
+
+openio_event_agent_storage_container_notify_delete:
+  - notify_delete
 
 openio_event_agent_storage_container_state_pipeline:
   - account_update
